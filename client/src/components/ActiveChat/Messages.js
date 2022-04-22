@@ -9,6 +9,7 @@ const Messages = (props) => {
 	message1.sort(function (a, b) {
 		return a.id - b.id;
 	});
+	console.log(message1);
 
 	return (
 		<Box>

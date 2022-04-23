@@ -49,8 +49,6 @@ const Home = ({ user, logout }) => {
 
 	const saveMessage = async (body) => {
 		const { data } = await axios.post('/api/messages', body);
-		console.log(data);
-
 		return data;
 	};
 
@@ -69,7 +67,6 @@ const Home = ({ user, logout }) => {
 					addNewConvo(body.recipientId, result.message);
 				} else {
 					addMessageToConversation(result);
-					console.log(conversations);
 				}
 
 				sendMessage(result, body);
@@ -97,7 +94,6 @@ const Home = ({ user, logout }) => {
 
 	const addMessageToConversation = useCallback(
 		(data) => {
-			console.log(data);
 			// if sender isn't null, that means the message needs to be put in a brand new convo
 			const { message, sender = null } = data;
 
@@ -114,11 +110,8 @@ const Home = ({ user, logout }) => {
 
 			let conversationClone = [...conversations];
 			conversationClone.forEach((convo) => {
-				console.log(convo);
 				if (convo.id === message.conversationId) {
 					convo.messages.push(message);
-					console.log(convo);
-
 					convo.latestMessageText = message.text;
 				}
 			});

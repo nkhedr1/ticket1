@@ -24,7 +24,6 @@ const Input = ({ otherUser, conversationId, user, postMessage }) => {
 	};
 
 	const handleSubmit = async (event) => {
-		console.log(event.currentTarget);
 		event.preventDefault();
 		const form = event.currentTarget;
 		const formElements = form.elements;
